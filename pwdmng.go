@@ -12,7 +12,7 @@ const db = "password.db"
 
 // 'add' functionality
 func add(website string, username string, password string) {
-	entry := website + "," + username + "," + password
+	entry := website + "," + username + "," + password + "\n"
 
 	/* OpenFile is Open but with flags
 	O_RDONLY	It opens the file read-only
@@ -57,15 +57,25 @@ func get(website string) {
 		}
 	}
 
-	statement := "Could not find " + website + " in pwdmng"
-	fmt.Print(statement)
+	statement := "Could not find " + website + " credentials in pwdmng"
+	fmt.Println(statement)
 }
 
 func main() {
-	var args []string = os.Args
-	if args[1] == "add" {
-		add(args[2], args[3], args[4])
-	} else if args[1] == "get" {
-		get(args[2])
+	switch args := os.Args; args[1] {
+	case "add":
+		if len(args) == 5 {
+			add(args[2], args[3], args[4])
+		} else {
+			fmt.Println("Invalid arguments")
+		}
+	case "get":
+		if len(args) == 3 {
+			get(args[2])
+		} else {
+			fmt.Println("Invalid arguments")
+		}
+	default:
+		fmt.Println("Invalid Operation")
 	}
 }

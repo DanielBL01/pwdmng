@@ -24,6 +24,8 @@ The single password neccessary to log into your password manager goes through an
 - [Go](https://golang.org)
 
 ### Future Improvements
+- Use a cli framework for better UI
+- Use Docker to containerize project
 
 ## Getting Started
 
