@@ -1,28 +1,54 @@
-# Password Manager
+# CLI Password Manager
+
+## Table of Contents
+
+- [About this project](#about-this-project)
+    - [Purpose](#purpose)
+    - [Built With](#built-with)
+    - [Future Improvements](#future-improvements)
+- [Getting Started](#getting-started)
+    - [Prerequisite](#prerequisite)
+    - [Installation](#installation)    
+- [Usage](#usage)
+
+## About this project
+### Purpose 
+For a long time, I would store passwords with the sticky notes app and sometimes even stored them physically on pieces of paper!
 
 This CLI Password Manager is a secure password manager which runs locally on your command line. The CLI Password Manager requires 
 an initial login with a password and will automatically log out once the temrinal session is closed.
 
 The single password neccessary to log into your password manager goes through an encryption and stored. 
 
+### Built With
+- [Go](https://golang.org)
+
+### Future Improvements
+
+## Getting Started
+
+### Prerequisite
+
+### Installation
+
 ## Usage
-### Login 
+#### Login 
 ```
 $ pwdmng login
 ```
-### Store password
+#### Add password
 ```
 $ pwdmng add <website> <username/email> <password>
 ```
-### Remove password
+#### Get password
 ```
-$ pwdmng remove <website>
+$ pwdmng get <website>
 ```
-### Update password
+#### Update password
 ```
 $ pwdmng update <website>
 ```
-### Retrieve password
+#### Remove password
 ```
-$ pwdmng get <website>
+$ pwdmng remove <website>
 ```
