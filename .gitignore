@@ -1,0 +1,5 @@
+# Ignore the build
+pwdmng
+
+# Ignore the local database file
+password.db
