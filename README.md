@@ -22,11 +22,12 @@ The single password neccessary to log into your password manager goes through an
 
 ### Built With
 - [Go](https://golang.org)
+- [Cobra](https://github.com/spf13/cobra)
 - [Redis](https://redis.io)
 - [Docker](https://www.docker.com)
 
 ### Future Improvements
-- Use a cli framework for better UI
+- Use the cobra framework to build a great UI 
 - Use Redis as a fast key value database
 - Use Docker to containerize project
 
