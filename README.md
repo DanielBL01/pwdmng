@@ -22,9 +22,12 @@ The single password neccessary to log into your password manager goes through an
 
 ### Built With
 - [Go](https://golang.org)
+- [Redis](https://redis.io)
+- [Docker](https://www.docker.com)
 
 ### Future Improvements
 - Use a cli framework for better UI
+- Use Redis as a fast key value database
 - Use Docker to containerize project
 
 ## Getting Started
