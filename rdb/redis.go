@@ -17,22 +17,33 @@ var db = redis.NewClient(&redis.Options{
 })
 
 func Store(website string, username string, password string) {
+	val, _ := db.Exists(ctx, website).Result()
+	if val == 1 {
+		fmt.Println("Credentials already exist")
+		return
+	}
+
 	err := db.HSet(ctx, website, []string{"username", username, "password", password}).Err()
 	if err != nil {
-		panic(err)
+		fmt.Println("Operation failed")
+		return
 	}
 
 	fmt.Println("Successfully added: " + website)
 }
 
 func Retrieve(website string) {
+	val, _ := db.Exists(ctx, website).Result()
+	if val == 0 {
+		fmt.Println("Credentials do not exist")
+		return
+	}
+
 	username, err1 := db.HGet(ctx, website, "username").Result()
 	password, err2 := db.HGet(ctx, website, "password").Result()
-	if err1 != nil {
-		panic(err1)
-	}
-	if err2 != nil {
-		panic(err2)
+	if err1 != nil || err2 != nil {
+		fmt.Println("Operation failed")
+		return
 	}
 
 	fmt.Println("username: " + username + "\n" + "password: " + password)
@@ -42,7 +53,8 @@ func Retrieve(website string) {
 func Delete(website string) {
 	err := db.Del(ctx, website).Err()
 	if err != nil {
-		panic(err)
+		fmt.Println("Operation failed")
+		return
 	}
 
 	fmt.Println("Successfully deleted: " + website)
@@ -52,7 +64,8 @@ func Delete(website string) {
 func Terminate() {
 	err := db.FlushAll(ctx).Err()
 	if err != nil {
-		panic(err)
+		fmt.Println("Operation failed")
+		return
 	}
 
 	fmt.Println("Successfully terminated all data from pwdmng")

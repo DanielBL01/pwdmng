@@ -1,5 +1,15 @@
 package main
 
+import "pwdmng/cmd"
+
+func main() {
+	cmd.RootCmd.Execute()
+}
+
+/*
+
+package main
+
 import (
 	"fmt"
 	"os"
@@ -52,3 +62,5 @@ func main() {
 		fmt.Println("Invalid Operation")
 	}
 }
+
+*/
