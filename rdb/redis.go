@@ -70,3 +70,16 @@ func Terminate() {
 
 	fmt.Println("Successfully terminated all data from pwdmng")
 }
+
+// List all keys stored
+func List() {
+	val, err := db.Keys(ctx, "*").Result()
+	if err != nil {
+		fmt.Println("Operation Failed")
+		return
+	}
+
+	for i, key := range val {
+		fmt.Println(i, key)
+	}
+}

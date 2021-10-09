@@ -26,7 +26,10 @@ The single password neccessary to log into your password manager goes through an
 - [Redis](https://redis.io)
 - [Docker](https://www.docker.com)
 
-### Future Improvements
+### How encryption works
+
+
+### Future improvements
 - Use the cobra framework to build a great UI 
 - Use Redis as a fast key value database
 - Use Docker to containerize project
@@ -58,3 +61,5 @@ $ pwdmng update <website>
 ```
 $ pwdmng remove <website>
 ```
+
+https://bruinsslot.jp/post/golang-crypto/
